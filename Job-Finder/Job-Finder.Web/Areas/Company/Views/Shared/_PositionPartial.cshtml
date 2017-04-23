@@ -1,0 +1,12 @@
+﻿@model Job_Finder.Web.Areas.Company.ViewModels.PositionViewModel
+
+<h1>@Model.Title</h1>
+<hr />
+<p>@Model.Description</p>
+<hr />
+<p>@Model.Salary</p>
+<hr />
+@foreach (var tag in Model.Tags)
+{
+    <span class="label label-default">@tag.Text <a hreef="del(@tag.Id)"></span>
+}

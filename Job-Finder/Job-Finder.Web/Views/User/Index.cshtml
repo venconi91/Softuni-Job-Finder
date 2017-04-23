@@ -1,0 +1,341 @@
+﻿@model Job_Finder.Web.ViewModels.User.UserViewModel
+
+@{
+    ViewBag.Title = "index home page ";
+}
+
+<br /><br />
+<div class="row">
+    <div class="col-xs-6 col-md-2">
+        <img class="img-circle" height="180" src="https://s-media-cache-ak0.pinimg.com/236x/0c/8d/12/0c8d12365b513f8c498401381a5da1f1.jpg"
+             alt="...">
+    </div>
+    <div class="col-md-10">
+        <h3 style="padding: 0; margin-top: 0;">
+            <!-- Single button -->
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                        aria-expanded="false">
+                    Действия <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="#"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Покани на интервю</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            Надблюдавай
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </h3>
+        <br />
+        <div class="col-md-6">
+            <div class="page-header" style="padding: 0;margin-top: 5px;">
+                <h5 style="padding: 0; margin-top: 0;">
+                    Описание
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown"
+                                aria-expanded="false">
+                            &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Редактирай</a></li>
+                        </ul>
+                    </div>
+                </h5>
+            </div>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into 
+            </p>
+        </div>
+        <div class="col-md-6">
+            <div class="page-header" style="padding: 0;margin-top: 5px;">
+                <h5 style="padding: 0; margin-top: 0;">
+                    Интереси
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown"
+                                aria-expanded="false">
+                            &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Редактирай</a></li>
+                        </ul>
+                    </div>
+                </h5>
+            </div>
+            <div>
+                <!-- foreach user.userskills-->
+                <span class="label label-default">PHP</span>
+                <span class="label label-primary">jQuery</span>
+                <span class="label label-success">C#</span>
+                <span class="label label-info">Java</span>
+                <span class="label label-warning">C++</span>
+                <span class="label label-danger">Photoshop</span>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <h4 class="text-center">
+            Информация
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown"
+                        aria-expanded="false">
+                    &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Редактирай</a></li>
+                </ul>
+            </div>
+        </h4>
+        <ul class="list-group">
+            <li class="list-group-item">Email: asdf@sadafaniq.com</li>
+            <li class="list-group-item">Education:Ph.d Тинтири минтири</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h4 class="text-center">
+            Проекти
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown"
+                        aria-expanded="false">
+                    &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Редактирай</a></li>
+                </ul>
+            </div>
+        </h4>
+        <ul class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h4 class="text-center">
+            Сертификати
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown"
+                        aria-expanded="false">
+                    &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Редактирай</a></li>
+                </ul>
+            </div>
+        </h4>
+        <ul class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <!-- bottom content box start - foreach data here-->
+    <div class="btn-group pull-right">
+        <button style="margin-left: -80px;" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                aria-expanded="false">
+            &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Добави нова обява</a></li>
+            <li><a href="#" class="bg-danger">Изтрий всички</a></li>
+        </ul>
+    </div>
+    <h3 class="text-center" style="padding: 0; margin-top: 0;">Търся позиции като..</h3>
+    <!--<div class="text-center" style="margin-bottom: 20px;">-->
+    <!--<a href="" class="btn btn-info btn-sm ">Създай нова обява</a>-->
+    <!--</div>-->
+    <br />
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-6 col-md-2">
+                        <a href="#" class="thumbnail">
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjYxIiB5PSI5MCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE3MXgxODA8L3RleHQ+PC9nPjwvc3ZnPg=="
+                                 alt="...">
+                        </a>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="page-header" style="padding: 0;margin-top: 5px;">
+                            <h3 style="padding: 0; margin-top: 0;">
+                                ASP.NET Програмист
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn btn-default dropdown-toggle btn-sm"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                        &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp;
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Редактирай</a></li>
+                                        <li><a href="#" class="bg-danger">Изтрий</a></li>
+                                    </ul>
+                                </div>
+                            </h3>
+                        </div>
+                        <p>
+                            Много съм надарен .. интелектуално. Занимавал съм се с тинтири минтири и тинтири минитири
+                            цели 9 години. Тралалал лала лалалааа. Softuni doichen francen di bugen tabaken..
+                        </p>
+                        <hr />
+                        <h2 class="pull-right">
+                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                            &nbsp;
+                            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                            &nbsp;
+                        </h2>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-6 col-md-2">
+                        <a href="#" class="thumbnail">
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjYxIiB5PSI5MCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE3MXgxODA8L3RleHQ+PC9nPjwvc3ZnPg=="
+                                 alt="...">
+                        </a>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="page-header" style="padding: 0;margin-top: 5px;">
+                            <h3 style="padding: 0; margin-top: 0;">
+                                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                &nbsp;
+                                <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                &nbsp;
+                                C# Програмист
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn btn-default dropdown-toggle btn-sm"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                        &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp;
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Редактирай</a></li>
+                                        <li><a href="#" class="bg-danger">Изтрий</a></li>
+                                    </ul>
+                                </div>
+                            </h3>
+                        </div>
+                        <p>
+                            Много съм надарен .. интелектуално. Занимавал съм се с тинтири минтири и тинтири минитири
+                            цели 9 години. Тралалал лала лалалааа. Softuni doichen francen di bugen tabaken..
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-6 col-md-2">
+                        <a href="#" class="thumbnail">
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjYxIiB5PSI5MCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE3MXgxODA8L3RleHQ+PC9nPjwvc3ZnPg=="
+                                 alt="...">
+                        </a>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="page-header" style="padding: 0;margin-top: 5px;">
+                            <h3 style="padding: 0; margin-top: 0;">
+                                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                &nbsp;
+                                <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                &nbsp;
+                                jQuery Аниматор
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn btn-default dropdown-toggle btn-sm"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                        &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp;
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Редактирай</a></li>
+                                        <li><a href="#" class="bg-danger">Изтрий</a></li>
+                                    </ul>
+                                </div>
+                            </h3>
+                        </div>
+                        <p>
+                            Много съм надарен .. интелектуално. Занимавал съм се с тинтири минтири и тинтири минитири
+                            цели 9 години. Тралалал лала лалалааа. Softuni doichen francen di bugen tabaken..
+                        </p>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-3">
+                        <div class="col-xs-6 col-md-2">
+                            <a href="#" class="thumbnail">
+                                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjYxIiB5PSI5MCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE3MXgxODA8L3RleHQ+PC9nPjwvc3ZnPg=="
+                                     alt="...">
+                            </a>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-default dropdown-toggle btn-sm"
+                                        data-toggle="dropdown" aria-expanded="false">
+                                    &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Докладвай</a></li>
+                                </ul>
+                            </div>
+                            <p>Е па азе съм Минчо и съм бачкал с Станчо 4 години. Стаа. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 col-md-offset-3">
+                        <div class="col-xs-6 col-md-2">
+                            <a href="#" class="thumbnail">
+                                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjYxIiB5PSI5MCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE3MXgxODA8L3RleHQ+PC9nPjwvc3ZnPg=="
+                                     alt="...">
+                            </a>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-default dropdown-toggle btn-sm"
+                                        data-toggle="dropdown" aria-expanded="false">
+                                    &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Докладвай</a></li>
+                                </ul>
+                            </div>
+                            <p>Е па азе съм Минчо и съм бачкал с Станчо 4 години. Стаа. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text-center">
+                        <a href="" class="btn btn-default btn-sm">Покажи още (6) </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- bottom content here end  -->
+    </div>

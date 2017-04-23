@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @RenderSection("formstyles", required: false)
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("tagstyles", required: false)
+
+    @Scripts.Render("~/bundles/jquery")
+   @* <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>*@
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+    <link href="~/Content/igniteui/infragistics.theme.css" rel="stylesheet" />
+    <link href="~/Content/igniteui/infragistics.css" rel="stylesheet" />
+
+    <!-- Ignite UI Required Combined JavaScript Files -->
+    <script src="http://cdn-na.infragistics.com/igniteui/2015.1/latest/js/infragistics.core.js"></script>
+    <script src="http://cdn-na.infragistics.com/igniteui/2015.1/latest/js/infragistics.dv.js"></script>
+    <script src="http://cdn-na.infragistics.com/igniteui/2015.1/latest/js/infragistics.lob.js"></script>
+
+    @*<script src="~/Content/Infragistics/jquery/jquery-1.9.1.min.js"></script>
+    <script src="~/Content/Infragistics/jquery/jquery-ui.min.js"></script>
+
+    <script src="~/Content/Infragistics/js/infragistics.core.js"></script>
+    <script src="~/Content/Infragistics/js/infragistics.lob.js"></script>
+    <script src="~/Content/Infragistics/js/infragistics.dv.js"></script>*@
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Job-Finder", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { })</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Rate announcements", "Index", "Announcement", new { area = "" }, new { })</li>
+                    }
+                    @if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Company"))
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Company Profile <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("View Recommended", "All", "Recommendation", new { area = "Company" }, new { })</li>
+                                <li>@Html.ActionLink("Company Profile", "Profile", "Company", new { area = "" }, new { })</li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+
+
+
+    
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/notify")
+
+    @RenderSection("scripts", required: false)
+    @RenderSection("formscripts", required: false)
+    @RenderSection("tagscript", required: false)
+
+    @if (TempData["SuccessNotification"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $.notify("@TempData["SuccessNotification"]",
+                {
+                    style: 'bootstrap',
+                    globalPosition: 'top center',
+                    className: 'success'
+                });
+            });
+        </script>
+    }
+
+    @if (TempData["ErrorNotification"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $.notify("@TempData["ErrorNotification"]",
+                {
+                    style: 'bootstrap',
+                    globalPosition: 'top center',
+                    className: 'error'
+                });
+            });
+        </script>
+    }
+
+    @if (TempData["WarningNotification"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $.notify("@TempData["WarningNotification"]",
+                {
+                    style: 'bootstrap',
+                    globalPosition: 'top center',
+                    className: 'warning'
+                });
+            });
+        </script>
+    }
+
+
+    @if (TempData["InfoNotification"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                $.notify("@TempData["InfoNotification"]",
+                {
+                    style: 'bootstrap',
+                    globalPosition: 'top center',
+                    className: 'info'
+                });
+            });
+        </script>
+    }
+
+</body>
+</html>

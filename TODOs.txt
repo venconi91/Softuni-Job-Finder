@@ -1,0 +1,5 @@
+-1. register companies methods and views
+0. add idbsets in context
+1. company rating with voting models
+2. users commenting on companies (complaints)
+3. Companies votes with more points

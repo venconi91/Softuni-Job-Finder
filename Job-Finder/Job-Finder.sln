@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{05638613-1488-4A22-BAFB-D4577408DE5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Libraries", "External Libraries", "{47E3D6F4-9518-47BA-912F-C9DA89534972}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DDE3E99B-7C28-415B-9591-642491E022F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{26CAD0B0-F584-4B41-A39E-9D7B594F66A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Job-Finder.Web", "Job-Finder.Web\Job-Finder.Web.csproj", "{8C59E1E3-064B-4574-999A-5E15B14C4674}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Job-Finder.Data", "Job-Finder.Data\Job-Finder.Data.csproj", "{C83A3AA9-E30F-47AF-A203-110814C24C2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Job-Finder.Models", "Job-Finder.Models\Job-Finder.Models.csproj", "{B2ACB016-067C-4A7D-842F-892F2DF46540}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C59E1E3-064B-4574-999A-5E15B14C4674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C59E1E3-064B-4574-999A-5E15B14C4674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C59E1E3-064B-4574-999A-5E15B14C4674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C59E1E3-064B-4574-999A-5E15B14C4674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83A3AA9-E30F-47AF-A203-110814C24C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83A3AA9-E30F-47AF-A203-110814C24C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83A3AA9-E30F-47AF-A203-110814C24C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83A3AA9-E30F-47AF-A203-110814C24C2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2ACB016-067C-4A7D-842F-892F2DF46540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2ACB016-067C-4A7D-842F-892F2DF46540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2ACB016-067C-4A7D-842F-892F2DF46540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2ACB016-067C-4A7D-842F-892F2DF46540}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8C59E1E3-064B-4574-999A-5E15B14C4674} = {26CAD0B0-F584-4B41-A39E-9D7B594F66A4}
+		{C83A3AA9-E30F-47AF-A203-110814C24C2C} = {05638613-1488-4A22-BAFB-D4577408DE5C}
+		{B2ACB016-067C-4A7D-842F-892F2DF46540} = {05638613-1488-4A22-BAFB-D4577408DE5C}
+	EndGlobalSection
+EndGlobal

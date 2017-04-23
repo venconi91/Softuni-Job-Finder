@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Job_Finder.Models.ProgramingSkill>
+
+@foreach (var skill in Model)
+{
+    <span class='label label-default'>@skill.Name &nbsp; <a href="removeUserSkill(@skill.Id)" style="color: white;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>&nbsp;</span>
+}

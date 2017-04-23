@@ -1,0 +1,346 @@
+﻿@model Job_Finder.Web.Areas.Company.ViewModels.ProfileCompanyViewModel
+
+<div class="row">
+    <div class="col-xs-6 col-md-2">
+        <a href="#" class="thumbnail">
+            <img src=@Model.Logo />
+        </a>
+    </div>
+    <div class="col-md-10">
+        <h3 style="padding: 0; margin-top: 0;">
+            @Model.Name
+            <!-- Single button -->
+            @if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Company") && @Model.IsUserOwner)
+            {
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                            aria-expanded="false">
+                        Actions <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Invite to interview</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                Watch
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            }
+        </h3>
+        <br />
+        <div class="col-md-6">
+            <div class="page-header" style="padding: 0;margin-top: 5px;">
+                <h5 style="padding: 0; margin-top: 0;">
+                    Description
+                    @if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Company") && @Model.IsUserOwner)
+                    {
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown"
+                                    aria-expanded="false">
+                                &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Edit</a></li>
+                            </ul>
+                        </div>
+                    }
+                </h5>
+            </div>
+            <p>
+                @Model.About
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <div class="page-header" style="padding: 0;margin-top: 5px;">
+                <h5 style="padding: 0; margin-top: 0;">
+                    Contacts
+                    @if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Company") && @Model.IsUserOwner)
+                    {
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown"
+                                    aria-expanded="false">
+                                &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Edit</a></li>
+                            </ul>
+                        </div>
+                    }
+                </h5>
+            </div>
+            <p>
+                @Model.Contact
+            </p>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <h4 class="text-center">
+            Positions
+        </h4>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default" aria-expanded="false" data-toggle="modal" data-target="#myModal">
+                        &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; Add Position &nbsp;
+                    </button>
+                </div>
+            </li>
+            @foreach (var position in Model.Positions)
+            {
+                <li class="list-group-item">
+                    <span>
+                        <a onclick="LoadCompanyPositionContent(@position.Id)" data-toggle="modal" data-target="#positionModal">
+                            @position.Title
+                        </a>
+                    </span>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="col-md-4">
+        <h4 class="text-center">
+            Notifications
+        </h4>
+        <ul class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h4 class="text-center">
+            Rating
+        </h4>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span id="detailed-minus-rating" data-score="0">
+                            Salary
+                        </span>
+                    </div>
+                    <div class=" col-md-6">
+                        @(Html.Infragistics().Rating()
+                            .ID("Salary")
+                            .Value(@Model.Rating.Salary)
+                            .Focusable(true)
+                                    .Precision(RatingPrecision.Exact)
+                            .Render()
+                        )
+                    </div>
+                    <div class="col-md-2">
+                        <span class="badge">@Model.Rating.Salary * </span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span id="detailed-minus-rating" data-score="0">
+                            Stress
+                        </span>
+                    </div>
+                    <div class=" col-md-6">
+                        @(Html.Infragistics().Rating()
+                            .ID("Stress")
+                            .Value(@Model.Rating.Stress)
+                            .Focusable(true)
+                                    .Precision(RatingPrecision.Exact)
+                            .Render()
+                            )
+                        
+                    </div>
+                    <div class="col-md-2">
+                        <span class="badge">@Model.Rating.Stress</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span id="detailed-minus-rating" data-score="0">
+                            Benefit
+                        </span>
+                    </div>
+                    <div class=" col-md-6">
+                        @(Html.Infragistics().Rating()
+                            .ID("Benefit")
+                            .Value(@Model.Rating.Benefit)
+                            .Focusable(true)
+                                    .Precision(RatingPrecision.Exact)
+                            .Render()
+                        )
+                    </div>
+                    <div class="col-md-2">
+                        <span class="badge">@Model.Rating.Benefit</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span id="detailed-minus-rating" data-score="0">
+                            Opportunity
+                        </span>
+                    </div>
+                    <div class=" col-md-6">
+                        @(Html.Infragistics().Rating()
+                            .ID("Opportunity")
+                            .Value(@Model.Rating.Opportunity)
+                            .Focusable(true)
+                                    .Precision(RatingPrecision.Exact)
+                            .Render()
+                        )
+                    </div>
+                    <div class="col-md-2">
+                        <span class="badge">@Model.Rating.Opportunity</span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span id="detailed-minus-rating" data-score="0">
+                            Respect
+                        </span>
+                    </div>
+                    <div class=" col-md-6">
+                        @(Html.Infragistics().Rating()
+                            .ID("Respect")
+                            .Value(@Model.Rating.Respect)
+                            .Focusable(true)
+                            .Precision(RatingPrecision.Exact)
+                            .Render()
+                        )
+                    </div>
+                    <div class="col-md-2">
+                        <span class="badge">@Model.Rating.Respect </span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<hr />
+
+<!-- Modal -->
+<div class="modal fade" id="positionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body" id="positionModalBody">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function LoadCompanyPositionContent(id) {
+        $("#positionModalBody").load("/Company/Position/View", { "id": id });
+    }
+</script>
+
+@Html.Partial("_ModalPopup", new Job_Finder.Web.Areas.Company.InputModel.CreateCompanyPositionInputModel())
+
+
+@section tagstyles
+    {
+    <link href="~/Content/Tags/dist/css/bootstrap-tokenfield.min.css" rel="stylesheet" />
+    <link href="~/Content/Tags/dist/css/tokenfield-typeahead.min.css" rel="stylesheet" />
+    <link href="~/Content/Tags/docs-assets/css/docs.css" rel="stylesheet" />
+    <link href="~/Content/Tags/docs-assets/css/pygments-manni.css" rel="stylesheet" />
+}
+
+@section tagscript
+    {
+    <script>
+    </script>
+    <script src="~/Content/Tags/dist/bootstrap-tokenfield.min.js"></script>
+    <script src="~/Content/Tags/docs-assets/js/affix.js"></script>
+    <script src="~/Content/Tags/docs-assets/js/docs.min.js"></script>
+    <script src="~/Content/Tags/docs-assets/js/scrollspy.js"></script>
+    <script src="~/Content/Tags/docs-assets/js/typeahead.bundle.min.js"></script>
+}
+
+<script>
+    $(function () {
+        var value = @Model.Rating.Salary;
+        $("#Salary").igRating({
+            voteCount: 5,
+            valueAsPercent: true,
+            value: 0.423721923828125,
+            valueChange: function (evt, ui) {
+                $("#currValue").val(ui.value);
+                $.post("/Company/Ratings/Create", { "RateValue": ui.value, "columnType": "Salary", company: "@Model.Name" });
+
+            }
+        });
+        $("#Benefit").igRating({
+            voteCount: 5,
+            valueAsPercent: true,
+            value: @double.Parse(Model.Rating.Benefit.ToString()),
+            valueChange: function (evt, ui) {
+                $("#currValue").val(ui.value);
+                $.post("/Company/Ratings/Create", { "RateValue": ui.value, "columnType": "Salary", company: "@Model.Name" });
+
+            }
+        });
+        $("#Opportunity").igRating({
+            voteCount: 5,
+            valueAsPercent: true,
+            value: @double.Parse(Model.Rating.Opportunity.ToString()),
+            valueChange: function (evt, ui) {
+                $("#currValue").val(ui.value);
+                $.post("/Company/Ratings/Create", { "RateValue": ui.value, "columnType": "Salary", company: "@Model.Name" });
+
+            }
+        });
+        $("#Stress").igRating({
+            voteCount: 5,
+            valueAsPercent: true,
+            value: @Model.Rating.Stress,
+            valueChange: function (evt, ui) {
+                $("#currValue").val(ui.value);
+                $.post("/Company/Ratings/Create", { "RateValue": ui.value, "columnType": "Salary", company: "@Model.Name" });
+
+            }
+        });
+        $("#Respect").igRating({
+            voteCount: 5,
+            valueAsPercent: true,
+            value: @Model.Rating.Respect,
+            valueChange: function (evt, ui) {
+                $("#currValue").val(ui.value);
+                $.post("/Company/Ratings/Create", { "RateValue": ui.value, "columnType": "Salary", company: "@Model.Name" });
+
+            }
+        });
+
+        $("#currValue").val($("#igRating1").igRating("value"));
+        OnSelectPrecision($("#selectPrecision").val());
+    });
+</script>

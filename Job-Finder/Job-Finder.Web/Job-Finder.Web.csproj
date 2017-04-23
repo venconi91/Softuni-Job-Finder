@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8C59E1E3-064B-4574-999A-5E15B14C4674}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Job_Finder.Web</RootNamespace>
+    <AssemblyName>Job-Finder.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Ado">
+      <HintPath>..\packages\Glimpse.Ado.1.7.3\lib\net45\Glimpse.Ado.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.AspNet">
+      <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core">
+      <HintPath>..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.EF6">
+      <HintPath>..\packages\Glimpse.EF6.1.6.5\lib\net45\Glimpse.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5">
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Olap.DataProvider.Adomd.Mvc, Version=5.15.1.1005, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\ember.js\Infragistics.Olap.DataProvider.Adomd.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Web.Mvc, Version=5.15.1.1005, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\ember.js\Infragistics.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Infragistics.Web.Mvc.Mobile, Version=5.15.1.1005, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\ember.js\Infragistics.Web.Mvc.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Company\CompanyAreaRegistration.cs" />
+    <Compile Include="Areas\Company\Controllers\CompanyController.cs" />
+    <Compile Include="Areas\Company\Controllers\CreateController.cs" />
+    <Compile Include="Areas\Company\Controllers\PositionController.cs" />
+    <Compile Include="Areas\Company\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\Company\Controllers\RatingsController.cs" />
+    <Compile Include="Areas\Company\Controllers\RecommendationController.cs" />
+    <Compile Include="Areas\Company\Controllers\ViewController.cs" />
+    <Compile Include="Areas\Company\InputModel\CreateCompanyPositionInputModel.cs" />
+    <Compile Include="Areas\Company\InputModel\RatingInputModel.cs" />
+    <Compile Include="Areas\Company\ViewModels\CreateCompanyViewModel.cs" />
+    <Compile Include="Areas\Company\ViewModels\PositionViewModel.cs" />
+    <Compile Include="Areas\Company\ViewModels\ProfileCompanyViewModel.cs" />
+    <Compile Include="Areas\Company\ViewModels\RecommendationsViewModel.cs" />
+    <Compile Include="Areas\Company\ViewModels\TagViewModel.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnnouncementController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProgramingSkillsController.cs" />
+    <Compile Include="Controllers\UserCertificatesController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserInformationController.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InputModels\AnnouncementInputModel.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Announcement\AnnouncementCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Announcement\AnnouncementViewModel.cs" />
+    <Compile Include="ViewModels\Announcement\VoteValueViewModel.cs" />
+    <Compile Include="ViewModels\CompanyPosition\CompanyPositionViewModel.cs" />
+    <Compile Include="ViewModels\User\UserViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Company\InputModel\RemoveThisFile.html" />
+    <Content Include="Areas\Company\ViewModels\RemoveThisFile.html" />
+    <Content Include="Areas\Company\Views\Position\Temove.txt" />
+    <Content Include="Areas\Company\Views\View\RemoveThisFile.html" />
+    <Content Include="Content\assets\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\assets\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\assets\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\assets\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\assets\bootstrap\js\npm.js" />
+    <Content Include="Content\assets\css\form-elements.css" />
+    <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\assets\ico\apple-touch-icon-114-precomposed.png" />
+    <Content Include="Content\assets\ico\apple-touch-icon-144-precomposed.png" />
+    <Content Include="Content\assets\ico\apple-touch-icon-57-precomposed.png" />
+    <Content Include="Content\assets\ico\apple-touch-icon-72-precomposed.png" />
+    <Content Include="Content\assets\ico\favicon.png" />
+    <Content Include="Content\assets\img\backgrounds\1%402x.jpg" />
+    <Content Include="Content\assets\img\backgrounds\1.jpg" />
+    <Content Include="Content\assets\img\backgrounds\2%402x.jpg" />
+    <Content Include="Content\assets\img\backgrounds\2.jpg" />
+    <Content Include="Content\assets\img\backgrounds\3%402x.jpg" />
+    <Content Include="Content\assets\img\backgrounds\3.jpg" />
+    <Content Include="Content\assets\img\no-image.png" />
+    <Content Include="Content\assets\js\formAction.js" />
+    <Content Include="Content\assets\js\jquery.backstretch.js" />
+    <Content Include="Content\assets\js\jquery.backstretch.min.js" />
+    <Content Include="Content\assets\js\placeholder.js" />
+    <Content Include="Content\assets\js\scriptsFrom.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\igniteui\images\icon_sprite.png" />
+    <Content Include="Content\igniteui\images\igBrowserLogos.png" />
+    <Content Include="Content\igniteui\images\igGrid\blank.png" />
+    <Content Include="Content\igniteui\images\igGrid\diagonals-medium.png" />
+    <Content Include="Content\igniteui\images\igGrid\filter-icons-333333.png" />
+    <Content Include="Content\igniteui\images\igGrid\filter-icons-FFFFFF.png" />
+    <Content Include="Content\igniteui\images\igGrid\group-by-label-right-edge.png" />
+    <Content Include="Content\igniteui\images\igGrid\touch-icons.png" />
+    <Content Include="Content\igniteui\images\igGrid\touch-icons.svg" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\arrow_collapse.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\arrow_expand.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\arrow_redo.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\arrow_undo.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\background_color.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\check.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\cut.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\decrease-font-size.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\html-editor-sprite.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\html.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\html_add.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\html_delete.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\html_go.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\html_valid.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\image_add.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\increase-font-size.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\link.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\link_add.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\link_break.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\page_copy.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\page_paste.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\table-delete-column-icon.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\table-insert-column-icon.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\table.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\table_row_delete.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\table_row_insert.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_align_center.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_align_justify.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_align_left.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_align_right.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_bold.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_color.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_horizontalrule.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_indent.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_indent_remove.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_italic.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_list_bullets.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_list_numbers.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_strikethrough.png" />
+    <Content Include="Content\igniteui\images\igHtmlEditor\text_underline.png" />
+    <Content Include="Content\igniteui\images\igLoadingSmall.gif" />
+    <Content Include="Content\igniteui\images\igPivot\dataselector-sprite.png" />
+    <Content Include="Content\igniteui\images\igPivot\kpi-icons.png" />
+    <Content Include="Content\igniteui\images\igPivot\pivot-header-icons.png" />
+    <Content Include="Content\igniteui\images\igPopover\igPopoverArrowBottom.png" />
+    <Content Include="Content\igniteui\images\igPopover\igPopoverArrowLeft.png" />
+    <Content Include="Content\igniteui\images\igPopover\igPopoverArrowRight.png" />
+    <Content Include="Content\igniteui\images\igPopover\igPopoverArrows.png" />
+    <Content Include="Content\igniteui\images\igPopover\igPopoverArrowTop.png" />
+    <Content Include="Content\igniteui\images\igRating\ig-rating-touch.png" />
+    <Content Include="Content\igniteui\images\igRating\ig-rating-touchx2.png" />
+    <Content Include="Content\igniteui\images\igRating\ig-rating.png" />
+    <Content Include="Content\igniteui\images\igVideoPlayer\igBigPauseButton.png" />
+    <Content Include="Content\igniteui\images\igVideoPlayer\igBigPlayButton.png" />
+    <Content Include="Content\igniteui\images\igVideoPlayer\igLoadingSmall.gif" />
+    <Content Include="Content\igniteui\images\igVideoPlayer\igPlayButton24.png" />
+    <Content Include="Content\igniteui\images\igVideoPlayer\igPlayButton32.png" />
+    <Content Include="Content\igniteui\images\igVideoPlayer\igPlayButton48.png" />
+    <Content Include="Content\igniteui\images\igVideoPlayer\igVideoPlayerIcons.png" />
+    <Content Include="Content\igniteui\images\igVideoPlayer\igVPBackground.png" />
+    <Content Include="Content\igniteui\images\igVideoPlayer\igVPBookmarkSprite.png" />
+    <Content Include="Content\igniteui\images\igVideoPlayer\igWarningIcon.png" />
+    <Content Include="Content\igniteui\images\trial.png" />
+    <Content Include="Content\igniteui\images\ui-anim_basic_16x16.gif" />
+    <Content Include="Content\igniteui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\igniteui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\igniteui\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\igniteui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\igniteui\infragistics.css" />
+    <Content Include="Content\igniteui\infragistics.theme.css" />
+    <Content Include="Content\Images\default_avatar.jpg" />
+    <Content Include="Content\assets\img\The-Error.gif" />
+    <Content Include="Content\Infragistics\css\infragistics.css" />
+    <Content Include="Content\Infragistics\css\infragistics.theme.css" />
+    <Content Include="Content\Infragistics\js\infragistics.core.js" />
+    <Content Include="Content\Infragistics\js\infragistics.dv.js" />
+    <Content Include="Content\Infragistics\js\infragistics.lob.js" />
+    <Content Include="Content\Infragistics\jquery\jquery-1.9.1.min.js" />
+    <Content Include="Content\Infragistics\jquery\jquery-ui.min.js" />
+    <Content Include="Content\Logos\Companies\no-image.png" />
+    <Content Include="Content\Tags\dist\bootstrap-tokenfield.js" />
+    <Content Include="Content\Tags\dist\bootstrap-tokenfield.min.js" />
+    <Content Include="Content\Tags\dist\css\bootstrap-tokenfield.css" />
+    <Content Include="Content\Tags\dist\css\bootstrap-tokenfield.min.css" />
+    <Content Include="Content\Tags\dist\css\tokenfield-typeahead.css" />
+    <Content Include="Content\Tags\dist\css\tokenfield-typeahead.min.css" />
+    <Content Include="Content\Tags\docs-assets\css\docs.css" />
+    <Content Include="Content\Tags\docs-assets\css\pygments-manni.css" />
+    <Content Include="Content\Tags\docs-assets\js\affix.js" />
+    <Content Include="Content\Tags\docs-assets\js\docs.js" />
+    <Content Include="Content\Tags\docs-assets\js\docs.min.js" />
+    <Content Include="Content\Tags\docs-assets\js\scrollspy.js" />
+    <Content Include="Content\Tags\docs-assets\js\typeahead.bundle.js" />
+    <Content Include="Content\Tags\docs-assets\js\typeahead.bundle.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Areas\Company\Views\web.config" />
+    <Content Include="Areas\Company\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Company\Views\Profile\Index.cshtml" />
+    <Content Include="Areas\Company\Views\Create\Index.cshtml" />
+    <Content Include="Content\assets\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\assets\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\assets\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\assets\font-awesome\less\animated.less" />
+    <Content Include="Content\assets\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\assets\font-awesome\less\core.less" />
+    <Content Include="Content\assets\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\assets\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\assets\font-awesome\less\icons.less" />
+    <Content Include="Content\assets\font-awesome\less\larger.less" />
+    <Content Include="Content\assets\font-awesome\less\list.less" />
+    <Content Include="Content\assets\font-awesome\less\mixins.less" />
+    <Content Include="Content\assets\font-awesome\less\path.less" />
+    <Content Include="Content\assets\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\assets\font-awesome\less\stacked.less" />
+    <Content Include="Content\assets\font-awesome\less\variables.less" />
+    <Content Include="Content\assets\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_core.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_list.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_path.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\Company\Views\Company\Index.cshtml" />
+    <Content Include="Areas\Company\Views\Recommendation\All.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\_ModalPopup.cshtml" />
+    <Content Include="Areas\Company\Views\Recommendation\_Recommended.cshtml" />
+    <Content Include="Areas\Company\Views\Shared\_PositionPartial.cshtml" />
+    <Content Include="Areas\Company\Views\Ratings\Create.cshtml" />
+    <Content Include="Areas\Company\Views\Ratings\Delete.cshtml" />
+    <Content Include="Areas\Company\Views\Ratings\Details.cshtml" />
+    <Content Include="Areas\Company\Views\Ratings\Edit.cshtml" />
+    <Content Include="Areas\Company\Views\Ratings\Index.cshtml" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Icon.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ProgramingSkills\Create.cshtml" />
+    <Content Include="Views\ProgramingSkills\Delete.cshtml" />
+    <Content Include="Views\ProgramingSkills\Details.cshtml" />
+    <Content Include="Views\ProgramingSkills\Edit.cshtml" />
+    <Content Include="Views\ProgramingSkills\Index.cshtml" />
+    <Content Include="Views\UserCertificates\Create.cshtml" />
+    <Content Include="Views\UserCertificates\Delete.cshtml" />
+    <Content Include="Views\UserCertificates\Details.cshtml" />
+    <Content Include="Views\UserCertificates\Edit.cshtml" />
+    <Content Include="Views\UserCertificates\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Announcement\Create.cshtml" />
+    <Content Include="Views\Announcement\Index.cshtml" />
+    <Content Include="Views\Announcement\_VotedAnnouncement.cshtml" />
+    <Content Include="Views\ProgramingSkills\_AllUsersSkillsTemplate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="ViewModels\ProgramingSkills\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\UserInformation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Job-Finder.Data\Job-Finder.Data.csproj">
+      <Project>{c83a3aa9-e30f-47af-a203-110814c24c2c}</Project>
+      <Name>Job-Finder.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Job-Finder.Models\Job-Finder.Models.csproj">
+      <Project>{b2acb016-067c-4a7d-842f-892f2df46540}</Project>
+      <Name>Job-Finder.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Content\Logos\Companies\RemoveThisFile.ts" />
+    <TypeScriptCompile Include="Content\Logos\Users\RemoveThisFile.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65459</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:65459/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

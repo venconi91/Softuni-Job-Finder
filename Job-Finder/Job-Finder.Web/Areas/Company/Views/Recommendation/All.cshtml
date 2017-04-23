@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Job_Finder.Web.ViewModels.CompanyPosition.CompanyPositionViewModel>
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>Company Positions</h2>
+
+@if (!Model.Any())
+{
+    <h2>No Positions Added</h2>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-6">
+            @foreach (var companyPos in Model)
+            {
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <div class="page-header" style="padding: 0;margin-top: 5px;">
+                                    <div class="text-center" padding 0; margin-top 0;">
+                                        <h4>@companyPos.Title</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <p>
+                                                Description: @companyPos.Description
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        @if (@companyPos.Salary != null)
+                                        {
+                                            <div class="col-md-10"><p class="place-to-bottom"><span>Salary: @companyPos.Salary</span></p></div>
+                                        }
+                                    </div>
+                                    <div class="row">
+                                        @foreach (var tag in @companyPos.Tags)
+                                        {
+                                            <span class='label label-success'>@tag.name</span>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>
+                                        @Ajax.ActionLink("View Recommended", "Recommended", new { area = "Company", Id = @companyPos.Id },
+                                            new AjaxOptions
+                                            {
+                                                InsertionMode = InsertionMode.ReplaceWith,
+                                                UpdateTargetId = "matchedAnnouncements",
+                                                HttpMethod = "GET",
+                                            }, new { @class = "btn btn-info btn-small" })
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-6" id="matchedAnnouncements">
+            matched
+        </div>
+    </div>
+}
+@section scripts {
+    @Scripts.Render("~/bundles/ajax"),
+    @Scripts.Render("~/bundles/jquery")
+}

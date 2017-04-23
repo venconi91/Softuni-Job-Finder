@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Job_Finder.Web.Areas.Company.ViewModels.RecommendationsViewModel>
+
+
+<div class="col-md-6">
+    <div class="row text-center">
+        <h3>Recommended</h3>
+    </div>
+
+</div>
+
+@if (!Model.Any())
+{
+    <p>No Results found</p>
+}
+else
+{
+    foreach (var announcement in Model)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-xs-6 col-md-1">
+                            <div class="row" id="announcement-vote-1">
+                                <div class="col-md-6">
+                                    <div class="row text-center" id="vote-value"><span class="small">@announcement.Votes</span></div>
+                                    <div class="row text-center"><span>votes</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+
+                            @if (announcement.userAvatarUrl != null)
+                            {
+                                <img class="thumbnail" height="80" src="@announcement.userAvatarUrl" alt="avatar">
+                            }
+                            else
+                            {
+                                <img class="thumbnail" height="80" src="~/Content/Images/default_avatar.jpg" alt="avatar">
+                            }
+                            <div class="row">
+                                <div class="text-center">
+                                    <strong>@announcement.username</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-md-offset-1">
+                            <div class="page-header" style="padding: 0;margin-top: 5px;">
+                                <div class="text-center" padding 0; margin-top 0;">
+                                    <h4>@announcement.Title</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <p>
+                                        @if (@announcement.Description == null)
+                                        {
+                                            @:No Description
+                                    }
+                                        else
+                                        {
+                                            @announcement.Description
+                                        }
+                                    </p>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="row text-center">
+                                        <strong>@announcement.MatchedCount</strong>
+                                    </div>
+                                    <div class="row text-center">
+                                        Matches
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="place-to-bottom">
+                                    @foreach (var tag in announcement.Tags)
+                                    {
+                                        <span class='label label-success'>@tag.name</span>
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

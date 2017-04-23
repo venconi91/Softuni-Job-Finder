@@ -1,0 +1,302 @@
+﻿@model Job_Finder.Web.ViewModels.User.UserViewModel
+
+<br /><br />
+<div class="row">
+    <div class="col-xs-6 col-md-2">
+        @if (Model.AvatarUrl != null)
+        {
+            <img class="thumbnail" height="180" src="@Model.AvatarUrl" alt="avatar">
+        }
+        else
+        {
+            <img class="thumbnail" height="180" src="~/Content/Images/default_avatar.jpg" alt="avatar">
+        }
+
+    </div>
+    <div class="col-md-10">
+        <h3 style="padding: 0; margin-top: 0;">
+            @Model.Username
+
+            <!-- Single button -->
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    Actions <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="#"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Покани на интервю</a>
+                        @Html.ActionLink("Create new company", "Create", "Company")
+                    </li>
+                </ul>
+            </div>
+        </h3>
+        <br />
+        <div class="col-md-6">
+            <div class="page-header" style="padding: 0;margin-top: 5px;">
+                <h5 style="padding: 0; margin-top: 0;">
+                    Description
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">
+                            &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" data-toggle="modal" data-target="#aboutUserInformationModal">Редактирай</a></li>
+                        </ul>
+                    </div>
+                </h5>
+            </div>
+            <p id="aboutUserInformation">
+                @Model.About
+            </p>
+        </div>
+        <div class="col-md-6">
+            <div class="page-header" style="padding: 0;margin-top: 5px;">
+                <h5 style="padding: 0; margin-top: 0;">
+                    Skills
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown"
+                                aria-expanded="false">
+                            &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Редактирай</a></li>
+                        </ul>
+                    </div>
+                </h5>
+            </div>
+            <div>
+                <!-- foreach user.userskills-->
+                @*<span class="label label-default">PHP</span>
+                    <span class="label label-primary">jQuery</span>
+                    <span class="label label-success">C#</span>
+                    <span class="label label-info">Java</span>
+                    <span class="label label-warning">C++</span>
+                    <span class="label label-danger">Photoshop</span>*@
+                <div id="userSkillsList">
+                    @if (Model.ProgramingSkills.Any())
+                    {
+                        Html.RenderPartial("~/Views/ProgramingSkills/_AllUsersSkillsTemplate.cshtml", Model.ProgramingSkills);
+                    }
+                    else
+                    {
+                        <p>Not entered skills ...</p>
+                    }
+                </div>
+                <br/>
+                <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#addNewsSkillModal">Add skill</a>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <h4 class="text-center">
+            Education
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown"
+                        aria-expanded="false">
+                    &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Редактирай</a></li>
+                </ul>
+            </div>
+        </h4>
+        <ul class="list-group">
+            @if (Model.Educations.Any())
+            {
+                foreach (var education in Model.Educations)
+                {
+                    @:implement list educations
+                }
+            }
+            else
+            {
+                <li class="list-group-item">No Finished Studies</li>
+            }
+            <a href="@Url.Action("Add", "Projects")">
+                <li class="list-group-item text-center"><span>Add New Finished Study</span></li>
+            </a>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h4 class="text-center">
+            Projects
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown"
+                        aria-expanded="false">
+                    &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Редактирай</a></li>
+                </ul>
+            </div>
+        </h4>
+        <ul class="list-group">
+            @if (Model.Projects.Any())
+            {
+                foreach (var projects in Model.Projects)
+                {
+                    @:implement list projects
+                }
+            }
+            else
+            {
+                <li class="list-group-item">No Projects</li>
+            }
+            <a href="@Url.Action("Add", "Projects")">
+                <li class="list-group-item text-center"><span>Add New Project</span></li>
+            </a>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h4 class="text-center">
+            Sertificates
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown"
+                        aria-expanded="false">
+                    &nbsp; <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp; <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Редактирай</a></li>
+                </ul>
+            </div>
+        </h4>
+        <ul class="list-group">
+            @if (Model.Certificates.Any())
+            {
+                foreach (var certificate in Model.Certificates)
+                {
+                    @:implement list certificates
+                }
+            }
+            else
+            {
+                <li class="list-group-item">No sertificates</li>
+            }
+            <a href="@Url.Action("Add", "UserCertificates")">
+                <li class="list-group-item text-center"><span>Add New Sertificate</span></li>
+            </a>
+        </ul>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <!-- bottom content box start - foreach data here-->
+
+    <h3 class="text-center"><button class="btn btn-info btn-lg" id="create-announcement" onclick="location.href='@Url.Action("Create", "Announcement")'">Apply for job now!</button></h3>
+
+
+
+    <br />
+</div>
+@foreach (var announcement in Model.UserAnnouncement)
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-xs-6 col-md-1">
+                <div class="row" id="announcement-vote-1">
+                    <div class="col-md-6">
+                        <div class="row text-center" id="vote-value"><span>@announcement.VotesValue</span></div>
+                        <div class="row text-center"><span class="small">votes</span></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-2">
+                @if (announcement.User.AvatarUrl != null)
+                {
+                    <img class="thumbnail" height="180" src="@announcement.User.AvatarUrl" alt="avatar">
+                }
+                else
+                {
+                    <img class="thumbnail" height=" 180" src="~/Content/Images/default_avatar.jpg" alt="avatar">
+                }
+            </div>
+            <div class="col-md-9">
+                <div class="page-header" style="padding: 0;margin-top: 5px;">
+                    <h3 style="padding: 0; margin-top: 0;">
+                        @announcement.Title
+                    </h3>
+                </div>
+                <p>
+                    @announcement.Description
+                </p>
+                <p class="place-to-bottom">
+                    
+                    @foreach (var tag in announcement.Tags)
+                    {
+                        <span class='label label-success'>@tag.Text</span>
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- MODALS -->
+<div class="modal fade" id="aboutUserInformationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add programing skills</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <textarea id="newAboutUserInformationArea"></textarea>
+                        <br/>
+                        <a href="#" onclick="ChangeUserAboutInformation();" class="btn btn-success btn-md" >Промени</a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODALS -->
+<div class="modal fade" id="addNewsSkillModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add programing skills</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="newUserSkillName" placeholder="Write your skill...">
+                            <span class="input-group-btn">
+                                <button onclick="addNewSkill()" class="btn btn-default" type="button">Add!</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function addNewSkill() {
+        $("#userSkillsList").load("/ProgramingSkills/AddSkill", { "newSkill": $('#newUserSkillName').val() }, function() {
+            console.log('smth');
+        });
+    }
+
+    function ChangeUserAboutInformation() {
+        $("#aboutUserInformation").load("/UserInformation/ChangeUserAboutInformation", { "about": $('#newAboutUserInformationArea').val()});
+    }
+</script>

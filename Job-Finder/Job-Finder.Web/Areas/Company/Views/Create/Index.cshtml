@@ -1,0 +1,91 @@
+﻿@model Job_Finder.Web.Areas.Company.ViewModels.CreateCompanyViewModel
+<!---<title>Bootstrap Login Form Template</title>-->
+<!-- CSS -->
+@section formstyles{
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="~/Content/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/form-elements.css">
+    <link rel="stylesheet" href="~/Content/assets/css/style.css">
+    <link rel="shortcut icon" href="~/Contentassets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Content/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/Content/assets/ico/apple-touch-icon-57-precomposed.png">
+}
+<!-- Top content -->
+<div class="top-content">
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <h1><strong>Job-Finder</strong> Register company form</h1>
+                    <div class="description">
+                        <p>
+                            Our mission is just to be the best !
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>Register your company</h3>
+                            <p>Find the best emplyee</p>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-lock"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        @using (Html.BeginForm("CreateCompany", "Create", new { area = "Company" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken();
+                            <div class="form-group">
+                                <div class="page-header">
+                                    <div class="row">
+                                        <div class="col-lg-5">
+                                            <img id="blah" src="#" alt="your image" />
+
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <h1>Upload <small>your logo.</small></h1>
+                                            <div class="fileUpload btn btn-success">
+                                                <span>Browse ...</span>
+                                                <input type="file" class="upload" name="Logo" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.CompanyName, new { @class = "sr-only" });
+                                @Html.TextBoxFor(m => m.CompanyName, new { placeholder = "Company name...", @class = "form-username form-control", id = "company-name" });
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.CompanyAbout, new { @class = "sr-only" });
+                                @Html.TextAreaFor(m => m.CompanyAbout, new { @class = "form-control", placeholder = "About company...", rows = "4", id = "about-company" });
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.CompanyContact, new { @class = "sr-only" });
+                                @Html.TextAreaFor(m => m.CompanyContact, new { @class = "form-control", placeholder = "Contact...", rows = "4", id = "about-company" });
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.ComapnyUrl, new { @class = "sr-only" });
+                                @Html.TextBoxFor(m => m.ComapnyUrl, new { placeholder = "Company url...", @class = "form-username form-control", id = "company-url" });
+                            </div>
+                            <button type="submit" class="btn">Register</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section formscripts
+        {
+    <script src="~/Content/assets/js/jquery.backstretch.min.js"></script>
+    <script src="~/Content/assets/js/scriptsFrom.js"></script>
+    <script src="~/Content/assets/js/formAction.js"></script>
+}

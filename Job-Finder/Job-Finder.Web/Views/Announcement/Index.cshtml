@@ -1,0 +1,105 @@
+﻿@model IList<Job_Finder.Web.ViewModels.Announcement.AnnouncementViewModel>
+
+
+@Scripts.Render("~/bundles/jquery")
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>colection from announcements</h2>
+
+    @if (!Model.Any())
+    {
+        <h2>Nobody is looking for a job</h2>
+    }
+    else
+    {
+        foreach (var announcement in Model)
+        {
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-xs-6 col-md-1">
+                            <div class="row" id="announcement-vote-@announcement.Id">
+                                @if (announcement.IsUserVoted)
+                                {
+                                    <div class="col-md-6">
+                                        <div class="row text-center">
+                                            <h3>
+                                                <span class="glyphicon glyphicon-ok vote-up" aria-hidden="true"></span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-md-6">
+                                        <div class="row text-center vote-up">
+                                            <h3>
+                                                @Ajax.ActionLink(" ", "VoteUp", new { Id = @announcement.Id },
+                                            new AjaxOptions
+                                            {
+                                                InsertionMode = InsertionMode.ReplaceWith,
+                                                UpdateTargetId = "announcement-vote-" + announcement.Id,
+                                                HttpMethod = "POST",
+                                            }, new { @class = "glyphicon glyphicon-chevron-up vote-up" })
+                                            </h3>
+                                        </div>
+                                        <div class="row text-center vote-down">
+                                            <h3>
+                                                @Ajax.ActionLink(" ", "VoteDown", new { Id = @announcement.Id },
+                                            new AjaxOptions
+                                            {
+                                                InsertionMode = InsertionMode.Replace,
+                                                UpdateTargetId = "announcement-vote-" + announcement.Id,
+                                                HttpMethod = "POST",
+                                            }, new { @class = "glyphicon glyphicon-chevron-down vote-down" })
+                                            </h3>
+                                            <h3></h3>
+                                        </div>
+                                    </div>
+                                }
+                                
+                                <div class="col-md-6">
+                                    <div class="row text-center" id="vote-value"><span>@announcement.VotesValue</span></div>
+                                    <div class="row text-center"><span class="small">votes</span></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+
+                            @if (announcement.AvatarUrl != null)
+                            {
+                                <img class="img-circle" height="180" src="@announcement.AvatarUrl" alt="avatar">
+                            }
+                            else
+                            {
+                                <img class="img-circle" height="180" src="~/Content/Images/default_avatar.jpg" alt="avatar">
+                            }
+                            <div class="row">
+                                <div class="text-center">
+                                    <strong>@announcement.Username</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="page-header" style="padding: 0;margin-top: 5px;">
+                                <h3 style="padding: 0; margin-top: 0;">
+                                    @announcement.Title
+                                </h3>
+                            </div>
+                            <p>
+                                @announcement.Description
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+    @section scripts {
+        @Scripts.Render("~/bundles/ajax"),
+        @Scripts.Render("~/bundles/jquery")
+    }
